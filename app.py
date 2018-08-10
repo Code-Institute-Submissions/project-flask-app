@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, url_for, redirect
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
@@ -10,12 +11,25 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def show_index():
-    return render_template("index.html")
+    return render_template("index.html", topics=mongo.db.topics.find())
 
-@app.route("/add")
-def addtopic():
+@app.route("/add", methods=["GET", "POST"])
+def add_topic():
+    if request.method == "POST":
+        topics = mongo.db.topics
+        topics.insert_one(request.form.to_dict())
+    
     return render_template("addtopic.html")
-
+    
+@app.route("/case/<topic_id>/<topic_name>", methods=["GET", "POST"])
+def show_topic(topic_id, topic_name):
+    if request.method == "POST":
+        dbname = request.form["topic"]
+        coll = mongo.db[dbname]
+        coll.insert_one(request.form.to_dict())
+    the_topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+    return render_template("showtopic.html", case=the_topic)
+    
 
 
 if __name__ == "__main__":

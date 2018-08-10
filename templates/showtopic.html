@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content%}
+
+<h4>{{case.topic}}</h4>
+
+<div class="row">
+    <form class="col s12" method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="hidden" name="topic" value={{case.topic}}>
+                <input placeholder="text" id="new_case" type="text" class="validate" name={{case.category_1}}>
+                <label for="new_case">{{case.category_1}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="text" id="new_case" type="text" class="validate" name={{case.category_2}}>
+                <label for="new_case">{{case.category_2}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Submit
+            <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock%}

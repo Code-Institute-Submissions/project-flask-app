@@ -1,17 +1,31 @@
 {% extends "base.html" %} {% block content%}
+
 <div class="row">
-    <form class="col s12" action="" method="POST">
+    <form class="col s12" method="POST">
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="e.g. houses" id="new_topic" type="text" class="validate">
+                <input placeholder="e.g. houses" id="new_topic" type="text" class="validate" name="topic">
                 <label for="new_topic">New topic</label>
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <div class="input-field col s12">
+                <input placeholder="text" id="new_category" type="text" class="validate" name="category_1">
+                <label for="new_category">Category</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="text" id="new_category" type="text" class="validate" name="category_2">
+                <label for="new_category">Category</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Submit
             <i class="material-icons right">send</i>
             </button>
         </div>
     </form>
 </div>
+
 {% endblock%}

@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content%}
-<p>Hello world</p>
+<h4>Topics</h4>
+{% for topic in topics%}
+    <a href="{{url_for('show_topic', topic_id=topic._id, topic_name=topic.topic)}}">{{topic.topic}}</a>
+{% endfor %}
 {% endblock%}
