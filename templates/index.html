@@ -2,6 +2,6 @@
 {% block content%}
 <h4>Topics</h4>
 {% for topic in topics%}
-    <a href="{{url_for('show_topic', topic_id=topic._id, topic_name=topic.topic)}}">{{topic.topic}}</a>
+    <a href="{{url_for('show_cases', topic_id=topic._id, topic_name=topic.topic)}}">{{topic.topic}}</a>
 {% endfor %}
 {% endblock%}

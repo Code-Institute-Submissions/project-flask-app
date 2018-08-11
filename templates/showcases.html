@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content%}
+<h4>{{cases_title}}</h4>
+
+{% for case in cases %} 
+{% for key, value in case.items() %} 
+{% if key != "_id" and key!="topic" %}
+<p>{{key}}: {{value}}</p>
+{% endif %}
+{% endfor %}
+<hr>
+{% endfor %} 
+{% endblock%}

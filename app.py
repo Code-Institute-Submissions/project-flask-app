@@ -21,15 +21,20 @@ def add_topic():
     
     return render_template("addtopic.html")
     
-@app.route("/case/<topic_id>/<topic_name>", methods=["GET", "POST"])
-def show_topic(topic_id, topic_name):
-    if request.method == "POST":
-        dbname = request.form["topic"]
-        coll = mongo.db[dbname]
-        coll.insert_one(request.form.to_dict())
-    the_topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
-    return render_template("showtopic.html", case=the_topic)
-    
+# @app.route("/case/<topic_id>/<topic_name>", methods=["GET", "POST"])
+# def show_topic(topic_id, topic_name):
+#     if request.method == "POST":
+#         dbname = request.form["topic"]
+#         coll = mongo.db[dbname]
+#         coll.insert_one(request.form.to_dict())
+#     the_topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+#     return render_template("showtopic.html", case=the_topic)
+
+@app.route("/case/<topic_id>/<topic_name>")
+def show_cases(topic_id, topic_name):
+    dbname = topic_name
+    coll = mongo.db[dbname]
+    return render_template("showcases.html", cases=coll.find(), cases_title=dbname)
 
 
 if __name__ == "__main__":
