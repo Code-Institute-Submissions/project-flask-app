@@ -9,4 +9,7 @@
 {% endfor %}
 <hr>
 {% endfor %} 
+
+ <a href="{{url_for('add_case', topic_id=topic_id, topic_title=cases_title)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
 {% endblock%}

@@ -21,6 +21,23 @@ def add_topic():
     
     return render_template("addtopic.html")
     
+@app.route("/case/<topic_id>/<topic_name>")
+def show_cases(topic_id, topic_name):
+    dbname = topic_name
+    coll = mongo.db[dbname]
+    return render_template("showcases.html", cases=coll.find(), cases_title=dbname, topic_id=topic_id)
+
+
+@app.route("/case/<topic_id>/<topic_title>/add", methods=["GET", "POST"])
+def add_case(topic_id, topic_title):
+    if request.method == "POST":
+        coll = mongo.db[topic_title]
+        coll.insert_one(request.form.to_dict())
+        return redirect("/case/"+topic_id+"/"+topic_title)
+    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
+    return render_template("addcase.html", case=topic)
+    
+    
 # @app.route("/case/<topic_id>/<topic_name>", methods=["GET", "POST"])
 # def show_topic(topic_id, topic_name):
 #     if request.method == "POST":
@@ -29,12 +46,6 @@ def add_topic():
 #         coll.insert_one(request.form.to_dict())
 #     the_topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
 #     return render_template("showtopic.html", case=the_topic)
-
-@app.route("/case/<topic_id>/<topic_name>")
-def show_cases(topic_id, topic_name):
-    dbname = topic_name
-    coll = mongo.db[dbname]
-    return render_template("showcases.html", cases=coll.find(), cases_title=dbname)
 
 
 if __name__ == "__main__":
