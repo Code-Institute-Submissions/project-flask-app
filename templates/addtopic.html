@@ -2,23 +2,23 @@
 
 <div class="row">
     <form class="col s12" method="POST">
-        <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="e.g. houses" id="new_topic" type="text" class="validate" name="topic">
-                <label for="new_topic">New topic</label>
+        <div id="formWrapper">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="e.g. houses" id="new_topic" type="text" class="validate" name="topic">
+                    <label for="new_topic">New topic</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="text" id="new_category" type="text" class="validate" name="category">
+                    <label for="new_category">Category</label>
+                </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="text" id="new_category" type="text" class="validate" name="category_1">
-                <label for="new_category">Category</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="text" id="new_category" type="text" class="validate" name="category_2">
-                <label for="new_category">Category</label>
-            </div>
+            <a id="btnAddTopicCategory" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
         </div>
         <div class="row">
             <button class="btn waves-effect waves-light" type="submit">Submit
