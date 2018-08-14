@@ -38,7 +38,11 @@ def add_case(project_id, project_title):
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     return render_template("addcase.html", case=project)
 
-
+@app.route("/delete/<project_id>/<project_title>")
+def delete_project(project_id, project_title):
+    mongo.db.projects.remove({"_id": ObjectId(project_id)})
+    mongo.db.drop_collection(project_title)
+    return redirect("/")
 
 
 if __name__ == "__main__":
