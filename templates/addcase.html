@@ -5,17 +5,17 @@
 <div class="container">
     <h4>{{case.project}}</h4>
     <h5>Add case</h5>
-    
+
     <div class="row">
         <form class="col s12" method="POST">
             <input type="hidden" name="project" value={{case.project}}> {%for key, value in case.items() %} {% if key != "_id" and key!="project" and key != "description" %}
 
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="text" id="new_case" type="text" class="validate" name={{value}}>
-                    <label for="new_case">{{value}}</label>
-                </div>
+
+            <div class="input-field col s12">
+                <input placeholder="text" id="new_case" type="text" class="validate" name={{value}}>
+                <label for="new_case">{{value}}</label>
             </div>
+
 
             {% endif %} {% endfor %}
 

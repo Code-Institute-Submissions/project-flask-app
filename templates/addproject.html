@@ -1,38 +1,32 @@
 {% extends "base.html" %} {% block content%}
 
 <div class="container">
-<div class="row">
-    <form class="col s12" method="POST">
-        <div id="formWrapper">
-            <div class="row">
+    <div class="row">
+        <form class="col s12" method="POST">
+            <div id="formWrapper">
+
                 <div class="input-field col s12">
                     <input placeholder="e.g. houses" id="new_project" type="text" class="validate" name="project">
                     <label for="new_project">New project</label>
                 </div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="text" id="new_category" type="text" class="validate" name="description" maxlength="150">
-                    <label for="new_category">Short description of the project (max 150 characters) </label>
+                    <textarea placeholder="text" id="new_category" type="text" class="materialize-textarea" name="description" maxlength="150"></textarea>
+                    <label for="new_category">Short description of the project (max 150 characters)</label>
                 </div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="text" id="new_category" type="text" class="validate" name="category">
                     <label for="new_category">Category</label>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <a id="btnAddprojectCategory" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="row">
-            <button class="btn waves-effect waves-light" type="submit">Submit
+            <div class="row">
+                <a id="btnAddprojectCategory" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit">Submit
             <i class="material-icons right">send</i>
             </button>
-        </div>
-    </form>
-</div>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock%}

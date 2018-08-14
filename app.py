@@ -38,6 +38,14 @@ def add_case(project_id, project_title):
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     return render_template("addcase.html", case=project)
 
+@app.route("/edit/<project_id>", methods=["POST", "GET"])
+def edit_project(project_id):
+    if request.method == "POST":
+        mongo.db.projects.update({"_id":ObjectId(project_id)}, request.form.to_dict())
+        return redirect(url_for("show_index"))
+    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    return render_template("editproject.html", project=project)
+
 @app.route("/delete/<project_id>/<project_title>")
 def delete_project(project_id, project_title):
     mongo.db.projects.remove({"_id": ObjectId(project_id)})
