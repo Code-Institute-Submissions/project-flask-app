@@ -1,12 +1,19 @@
 {% extends "base.html" %} {% block content%}
 
+<div class="container">
 <div class="row">
     <form class="col s12" method="POST">
         <div id="formWrapper">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="e.g. houses" id="new_topic" type="text" class="validate" name="topic">
-                    <label for="new_topic">New topic</label>
+                    <input placeholder="e.g. houses" id="new_project" type="text" class="validate" name="project">
+                    <label for="new_project">New project</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="text" id="new_category" type="text" class="validate" name="description" maxlength="150">
+                    <label for="new_category">Short description of the project (max 150 characters) </label>
                 </div>
             </div>
             <div class="row">
@@ -18,7 +25,7 @@
         </div>
 
         <div class="row">
-            <a id="btnAddTopicCategory" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <a id="btnAddprojectCategory" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
         </div>
         <div class="row">
             <button class="btn waves-effect waves-light" type="submit">Submit
@@ -27,5 +34,5 @@
         </div>
     </form>
 </div>
-
+</div>
 {% endblock%}

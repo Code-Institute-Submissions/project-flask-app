@@ -3,13 +3,13 @@
 
 {% for case in cases %} 
 {% for key, value in case.items() %} 
-{% if key != "_id" and key!="topic" %}
+{% if key != "_id" and key!="project" %}
 <p>{{key}}: {{value}}</p>
 {% endif %}
 {% endfor %}
 <hr>
 {% endfor %} 
 
- <a href="{{url_for('add_case', topic_id=topic_id, topic_title=cases_title)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+ <a href="{{url_for('add_case', project_id=project_id, project_title=cases_title)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 
 {% endblock%}

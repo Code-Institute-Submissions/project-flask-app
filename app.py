@@ -11,32 +11,34 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def show_index():
-    return render_template("index.html", topics=mongo.db.topics.find())
+    return render_template("index.html", projects=mongo.db.projects.find())
 
 @app.route("/add", methods=["GET", "POST"])
-def add_topic():
+def add_project():
     if request.method == "POST":
-        topics = mongo.db.topics
-        topics.insert_one(request.form.to_dict())
+        projects = mongo.db.projects
+        projects.insert_one(request.form.to_dict())
         return redirect("/")
     
-    return render_template("addtopic.html")
+    return render_template("addproject.html")
     
-@app.route("/case/<topic_id>/<topic_name>")
-def show_cases(topic_id, topic_name):
-    dbname = topic_name
+@app.route("/case/<project_id>/<project_name>")
+def show_cases(project_id, project_name):
+    dbname = project_name
     coll = mongo.db[dbname]
-    return render_template("showcases.html", cases=coll.find(), cases_title=dbname, topic_id=topic_id)
+    return render_template("showcases.html", cases=coll.find(), cases_title=dbname, project_id=project_id)
 
 
-@app.route("/case/<topic_id>/<topic_title>/add", methods=["GET", "POST"])
-def add_case(topic_id, topic_title):
+@app.route("/case/<project_id>/<project_title>/add", methods=["GET", "POST"])
+def add_case(project_id, project_title):
     if request.method == "POST":
-        coll = mongo.db[topic_title]
+        coll = mongo.db[project_title]
         coll.insert_one(request.form.to_dict())
-        return redirect("/case/"+topic_id+"/"+topic_title)
-    topic = mongo.db.topics.find_one({"_id": ObjectId(topic_id)})
-    return render_template("addcase.html", case=topic)
+        return redirect("/case/"+project_id+"/"+project_title)
+    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+    return render_template("addcase.html", case=project)
+
+
 
 
 if __name__ == "__main__":
