@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content%}
+
+<div class="container">
+    <h4>{{case.project}}</h4>
+    <h5>Edit case</h5>
+
+    <div class="row">
+        <form class="col s12" method="POST">
+            {%for key, value in case.items() %} {% if key != "_id" and key!="project"%}
+
+            <div class="input-field col s12">
+                <input placeholder="text" id="edit_case" type="text" class="validate" name={{key}} value={{value}}>
+                <label for="edit_case">{{key}}</label>
+            </div>
+
+
+            {% endif %} {% endfor %}
+
+            <div class="row">
+                <button class="indigo lighten-2 btn waves-effect waves-light" type="submit">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            <button class="indigo lighten-2 btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_case', project_title=case.project, case_id=case._id)}}">Delete
+            <i class="material-icons right">delete</i>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock%}

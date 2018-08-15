@@ -1,15 +1,36 @@
 {% extends "base.html" %} {% block content%}
-<h4>{{cases_title}}</h4>
 
-{% for case in cases %} 
-{% for key, value in case.items() %} 
-{% if key != "_id" and key!="project" %}
-<p>{{key}}: {{value}}</p>
-{% endif %}
-{% endfor %}
-<hr>
-{% endfor %} 
+<div class="row">
+    <div class="col l3 m12 s12">
+        <div class="row center-align">
+            <h4>{{cases_title}}</h4>
+            <p class="show-cases-project-description">{{project.description}}</p>
+            <a href="{{url_for('add_case', project_id=project._id, project_title=cases_title)}}" class="indigo lighten-2 btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+    </div>
+    <div class="col l9 m12 s12">
+        {% for case in cases %}
+        <div class="col l4 m6 s12">
+            <a href="{{url_for('show_single_case', project_title=project.project, case_id=case._id)}}">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='images/test.jpg') }}">
+                    </div>
+            </a>
+            <div class="card-content">
+                {% for key, value in case.items() %} {% if key != "_id" and key!="project" %}
+                <p>{{key}}: {{value}}</p>
+                {% endif %} {% endfor %}
+            </div>
 
- <a href="{{url_for('add_case', project_id=project_id, project_title=cases_title)}}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <div class=right-align>
+                <a class="project-card-icon" href="{{url_for('edit_single_case', project_title=project.project, case_id=case._id)}}"><i class="small material-icons">edit</i></a>
+                <a class="project-card-icon" href="{{url_for('edit_single_case', project_title=project.project, case_id=case._id)}}"><i class="small material-icons">delete</i></a>
+            </div>
+            </div>
+        </div>
 
-{% endblock%}
+
+        {% endfor %} {% endblock%}
+    </div>
+</div>

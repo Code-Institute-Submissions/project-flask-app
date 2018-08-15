@@ -19,15 +19,15 @@
             <a href="{{url_for('show_index')}}" class="brand-logo">CSF APP</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{url_for('add_project')}}">Add project</a></li>
-                <li><a href="{{url_for('show_index')}}">Home</a></li>
+                <li><a class="nav-text-color-mobile" href="{{url_for('add_project')}}">Add project</a></li>
+                <li><a class="nav-text-color-mobile" href="{{url_for('show_index')}}">Home</a></li>
             </ul>
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        <li><a class="#3949ab indigo darken-1" href="{{url_for('add_project')}}">Add project</a></li>
-        <li><a class="#3949ab indigo darken-1" href="{{url_for('show_index')}}">Home</a></li>
+    <ul class="sidenav white" id="mobile-demo">
+        <li><a class="nav-text-color-mobile" href="{{url_for('add_project')}}">Add project</a></li>
+        <li><a class="nav-text-color-mobile" href="{{url_for('show_index')}}">Home</a></li>
     </ul>
 </header>
 

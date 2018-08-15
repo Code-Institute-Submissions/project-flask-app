@@ -1,11 +1,22 @@
-
-
-
+/*------------------------------------------------------------------colors, bg-colors*/
+.nav-text-color-mobile {
+    color: white;
+}
 
 /*------------------------------------------------------------------special paddings, positions*/
+.projects-wrapper {
+    margin-left: 20px;
+    margin-right: 20px
+}
+
+.project-cards {
+    min-height: 360px
+}
+
 .project-card-icon {
     text-decoration: none;
     color: black;
+    bottom: 3px;
 }
 
 .sub_btn {
@@ -19,6 +30,10 @@
 #btnAddprojectCategory {
     position: relative;
     top: -50px;
+}
+
+.show-cases-project-description {
+    margin: 20px;
 }
 
 

@@ -22,20 +22,36 @@ def add_project():
     
     return render_template("addproject.html")
     
-@app.route("/case/<project_id>/<project_name>")
-def show_cases(project_id, project_name):
-    dbname = project_name
+@app.route("/project/<project_name>")
+def show_cases(project_name):
+    project = mongo.db.projects.find_one({"project": project_name})
+    dbname = project['project']
     coll = mongo.db[dbname]
-    return render_template("showcases.html", cases=coll.find(), cases_title=dbname, project_id=project_id)
+    return render_template("showcases.html", cases=coll.find(), cases_title=dbname, project=project)
+    
+@app.route("/showcase/<project_title>/<case_id>")
+def show_single_case(project_title, case_id):
+    coll = mongo.db[project_title]
+    case = coll.find_one({"_id": ObjectId(case_id)})
+    return render_template("showsinglecase.html", case=case)
 
+@app.route("/editcase/<project_title>/<case_id>", methods=["GET", "POST"])
+def edit_single_case(project_title, case_id):
+    if request.method == "POST":
+        coll = mongo.db[project_title]
+        coll.update({"_id": ObjectId(case_id)}, request.form.to_dict())
+        return redirect(url_for("show_cases", project_name=project_title))
+    coll = mongo.db[project_title]
+    case = coll.find_one({"_id": ObjectId(case_id)})
+    return render_template("editsinglecase.html", case=case)
 
-@app.route("/case/<project_id>/<project_title>/add", methods=["GET", "POST"])
-def add_case(project_id, project_title):
+@app.route("/project/<project_title>/add", methods=["GET", "POST"])
+def add_case(project_title):
     if request.method == "POST":
         coll = mongo.db[project_title]
         coll.insert_one(request.form.to_dict())
-        return redirect("/case/"+project_id+"/"+project_title)
-    project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
+        return redirect(url_for("show_cases", project_name=project_title))
+    project = mongo.db.projects.find_one({"project":project_title})
     return render_template("addcase.html", case=project)
 
 @app.route("/edit/<project_id>", methods=["POST", "GET"])
@@ -46,11 +62,18 @@ def edit_project(project_id):
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     return render_template("editproject.html", project=project)
 
-@app.route("/delete/<project_id>/<project_title>", methods=["POST"])
+@app.route("/project/<project_id>/<project_title>/delete", methods=["POST"])
 def delete_project(project_id, project_title):
     mongo.db.projects.remove({"_id": ObjectId(project_id)})
     mongo.db.drop_collection(project_title)
+    return redirect(url_for("show_index"))
+
+@app.route("/deletecase/<project_title>/<case_id>", methods=["POST"])
+def delete_case(project_title, case_id):
+    coll = mongo.db[project_title]
+    coll.remove({"_id": ObjectId(case_id)})
     return redirect("/")
+
 
 
 if __name__ == "__main__":

@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content%}
+
+<div class="row center-align">
+<h4>{{case.project}}</h4>
+{%for key, value in case.items() %}
+{% if key != "_id" and key!="project"%}
+<h6>{{key}}: {{value}}</h6>
+
+
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}
