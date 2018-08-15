@@ -1,5 +1,14 @@
+
+
+
+
+/*------------------------------------------------------------------special paddings, positions*/
 .project-card-icon {
     text-decoration: none;
     color: black;
+}
+
+#btnAddprojectCategory {
+    left: 80%;
 }
 

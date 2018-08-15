@@ -46,7 +46,7 @@ def edit_project(project_id):
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     return render_template("editproject.html", project=project)
 
-@app.route("/delete/<project_id>/<project_title>")
+@app.route("/delete/<project_id>/<project_title>", methods=["POST"])
 def delete_project(project_id, project_title):
     mongo.db.projects.remove({"_id": ObjectId(project_id)})
     mongo.db.drop_collection(project_title)

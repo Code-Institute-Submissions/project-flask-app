@@ -7,10 +7,8 @@
     <h5>Edit project categories</h5>
 
     <div class="row">
-        <form class="col s12" method="POST">
-            <input type="hidden" name="project" value={{project.project}}> 
-            
-            {%for key, value in project.items() %} {% if key == "description" %}
+        <form id="form_edit" class="col s12" method="POST">
+            <input type="hidden" name="project" value={{project.project}}> {%for key, value in project.items() %} {% if key == "description" %}
 
             <div class="input-field col s12">
                 <textarea placeholder="text" id="new_category" type="text" class="materialize-textarea" name="{{key}}" maxlength="150">{{value}}</textarea>
@@ -19,20 +17,27 @@
 
             {% elif key != "_id" and key!="project"%}
 
-                <div class="input-field col s12">
-                    <input placeholder="text" id="new_project" type="text" class="validate" name={{key}} value={{value}}>
-                    <label for="new_project">Category</label>
-                </div>
-      
+            <div class="input-field col s12">
+                <input placeholder="text" id="new_project" type="text" class="validate" name={{key}} value={{value}}>
+                <label for="new_project">Category</label>
+            </div>
+
 
             {% endif %} {% endfor %}
 
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit">Submit
-            <i class="material-icons right">send</i>
-            </button>
+
+
             </div>
         </form>
+        <button class="btn waves-effect waves-light" type="submit" form="form_edit">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            <button class="btn waves-effect waves-light" type="submit" form="form_delete">Delete
+            <i class="material-icons right">delete</i>
+            </button>
+            
+            <form id="form_delete" method="POST" action="{{url_for('delete_project', project_id=project._id, project_title=project.project)}}"> </form>
     </div>
 </div>
 
