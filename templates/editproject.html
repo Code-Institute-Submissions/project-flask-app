@@ -7,7 +7,7 @@
     <h5>Edit project categories</h5>
 
     <div class="row">
-        <form id="form_edit" class="col s12" method="POST">
+        <form class="col s12" method="POST">
             <input type="hidden" name="project" value={{project.project}}> {%for key, value in project.items() %} {% if key == "description" %}
 
             <div class="input-field col s12">
@@ -26,18 +26,15 @@
             {% endif %} {% endfor %}
 
             <div class="row">
-
+                 <button class="indigo lighten-2 btn waves-effect waves-light" type="submit">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            <button class="indigo lighten-2 btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_project', project_id=project._id, project_title=project.project)}}">Delete
+            <i class="material-icons right">delete</i>
+            </button>
 
             </div>
         </form>
-        <button class="btn waves-effect waves-light" type="submit" form="form_edit">Submit
-            <i class="material-icons right">send</i>
-            </button>
-            <button class="btn waves-effect waves-light" type="submit" form="form_delete">Delete
-            <i class="material-icons right">delete</i>
-            </button>
-            
-            <form id="form_delete" method="POST" action="{{url_for('delete_project', project_id=project._id, project_title=project.project)}}"> </form>
     </div>
 </div>
 
