@@ -3,6 +3,12 @@
     color: white;
 }
 
+.button-color {
+    color: #7986cb;
+}
+
+
+
 /*------------------------------------------------------------------special paddings, positions*/
 .projects-wrapper {
     margin-left: 20px;
@@ -10,13 +16,27 @@
 }
 
 .project-cards {
-    min-height: 360px
+    min-height: 300px
+}
+
+.project-card-img {
+    max-height: 150px;
+    object-fit: cover;
 }
 
 .project-card-icon {
     text-decoration: none;
     color: black;
     bottom: 3px;
+}
+
+.title-add-project {
+    position: absolute;
+    text-align: center;
+}
+
+.btn-add-project {
+    margin: 0 auto;
 }
 
 .sub_btn {
@@ -38,3 +58,7 @@
 
 
 
+/*------------------------------------------------------------------index*/
+.card-add-project {
+    
+}

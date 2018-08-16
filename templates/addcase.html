@@ -8,7 +8,7 @@
 
     <div class="row">
         <form class="col s12" method="POST">
-            <input type="hidden" name="project" value={{case.project}}> {%for key, value in case.items() %} {% if key != "_id" and key!="project" and key != "description" %}
+            <input type="hidden" name="project" value={{case.project}}> {%for key, value in case.items() %} {% if key != "_id" and key!="project" and key != "description" and key !="image" %}
 
 
             <div class="input-field col s12">

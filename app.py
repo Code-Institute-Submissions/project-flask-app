@@ -72,7 +72,7 @@ def delete_project(project_id, project_title):
 def delete_case(project_title, case_id):
     coll = mongo.db[project_title]
     coll.remove({"_id": ObjectId(case_id)})
-    return redirect("/")
+    return redirect(url_for("show_cases", project_name=project_title))
 
 
 

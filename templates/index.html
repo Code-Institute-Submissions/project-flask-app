@@ -2,7 +2,7 @@
 
 
 <div class="row center-align">
-    <h4>Your projects</h4>
+    <h4>My projects</h4>
 </div>
 <div class="row projects-wrapper">
     {% for project in projects%}
@@ -10,7 +10,7 @@
         <div class="col l4 m6 s12">
             <div class="card project-cards hoverable">
                 <div class="card-image">
-                    <img src="{{ url_for('static', filename='images/test.jpg') }}">
+                    <img class="project-card-img" {% if project.image %} src={{project.image}} {% else %} src="https://images.pexels.com/photos/247772/pexels-photo-247772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" {% endif %}>
                     <span class="card-title">{{project.project}}</span>
                     <a href="{{url_for('add_case', project_id=project._id, project_title=project.project)}}" class="indigo lighten-2 btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
@@ -25,9 +25,11 @@
         </div>
     </a>
     {% endfor %}
-    <div class="col l4 m6 s12 project-cards">
-        <div class="card project-cards hoverable">
-           
+    <a class="project-card-icon" href="{{url_for('add_project')}}">
+        <div class="col l4 m6 s12 project-cards card-add-project">
+            <div class="card project-cards indigo lighten-4 hoverable valign-wrapper">
+                <i class="btn-add-project large material-icons button-color">add_circle_outline</i>
+            </div>
         </div>
-    </div>
+    </a>
 </div>{% endblock%}

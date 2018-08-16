@@ -7,4 +7,8 @@ $(document).ready(function() {
         $('#formWrapper').append(newDiv);
         countCategory+=1
     });
+    
+    $('.btnRemoveprojectCategory').click(function() {
+        $(this).closest('div').remove()
+    })
 });
