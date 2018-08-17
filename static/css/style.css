@@ -39,19 +39,6 @@
     margin: 0 auto;
 }
 
-.sub_btn {
-    text-align: left;
-}
-
-.add_btn {
-    text-align: right;
-}
-
-#btnAddprojectCategory {
-    position: relative;
-    top: -50px;
-}
-
 .show-cases-project-description {
     margin: 20px;
 }

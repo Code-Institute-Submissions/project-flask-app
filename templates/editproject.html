@@ -26,10 +26,10 @@
             {% endif %} {% endfor %}
 
             <div class="row">
-                 <button class="indigo lighten-2 btn waves-effect waves-light" type="submit">Submit
+                 <button class="indigo btn waves-effect waves-light" type="submit">Submit
             <i class="material-icons right">send</i>
             </button>
-            <button class="indigo lighten-2 btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_project', project_id=project._id, project_title=project.project)}}">Delete
+            <button class="indigo btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_project', project_id=project._id, project_title=project.project)}}">Delete
             <i class="material-icons right">delete</i>
             </button>
 

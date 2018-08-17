@@ -17,10 +17,10 @@
             {% endif %} {% endfor %}
 
             <div class="row">
-                <button class="indigo lighten-2 btn waves-effect waves-light" type="submit">Submit
+                <button class="indigo btn waves-effect waves-light" type="submit">Submit
             <i class="material-icons right">send</i>
             </button>
-            <button class="indigo lighten-2 btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_case', project_title=case.project, case_id=case._id)}}">Delete
+            <button class="indigo btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_case', project_title=case.project, case_id=case._id)}}">Delete
             <i class="material-icons right">delete</i>
             </div>
         </form>

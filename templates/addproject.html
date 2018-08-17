@@ -1,39 +1,43 @@
 {% extends "base.html" %} {% block content%}
 
 <div class="container">
+    <div class="row center-align">
+        <h4>Add project</h4>
+    </div>
     <div class="row">
         <form class="col s12" method="POST">
-            
-            <div id="formWrapper">
 
+            <div id="formWrapper">
                 <div class="input-field col s12">
-                    <input placeholder="e.g. houses" id="new_project" type="text" class="validate" name="project">
+                    <input placeholder="Title" id="new_project" type="text" class="validate" name="project">
                     <label for="new_project">New project</label>
                 </div>
                 <div class="input-field col s12">
-                    <textarea placeholder="text" id="new_category" type="text" class="materialize-textarea" name="description" maxlength="150"></textarea>
+                    <textarea placeholder="Description" id="new_category" type="text" class="materialize-textarea" name="description" maxlength="150"></textarea>
                     <label for="new_category">Short description of the project (max 150 characters)</label>
                 </div>
                 <div class="input-field col s12">
-                    <input placeholder="image URL" id="new_category" type="text" class="validate" name="image">
-                    <label for="new_category">Image (optional)</label>
+                    <input placeholder="image URL should start with 'http' (Get nice images from pexels.com :D )" id="new_category" type="text" class="validate" name="image">
+                    <label for="new_category">Header image (optional)</label>
                 </div>
-                <div class="input-field col s12">
-                    <input placeholder="text" id="new_category" type="text" class="validate" name="category">
-                    <label for="new_category">Category</label>
+            </div>
+            <div class="row">
+                <div class='col s12>'>
+                    <a id="btnAddprojectCategoryText" class="waves-effect waves-light indigo lighten-2 btn"><i class="material-icons right">text_fields</i>Add text field</a>
+                    <a id="btnAddprojectCategoryNumber" class="waves-effect waves-light indigo lighten-2 btn"><i class="material-icons right">looks_one</i>Add number field</a>
+                    <a id="btnAddprojectCategoryBoolean" class="waves-effect waves-light indigo lighten-2 btn"><i class="material-icons right">thumbs_up_down</i>Add boolean</a>
                 </div>
             </div>
             <div class="row ">
-                <div class="col s6 sub_btn">
-            <button class="btn waves-effect waves-light indigo lighten-2" type="submit">Submit
-            <i class="material-icons right">send</i>
-            </button>
+                <div class="col s12 sub_btn">
+                    <button class="btn waves-effect waves-light indigo" type="submit">Submit
+                    <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </div>
-            <div class="col s6 add_btn">
-            <a id="btnAddprojectCategory" class="indigo lighten-2 btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            </div>
-        </form>
+
     </div>
+    </form>
+</div>
 </div>
 {% endblock%}
