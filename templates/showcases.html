@@ -18,7 +18,7 @@
                     </div>
             </a>
             <div class="card-content">
-                {% for key, value in case.items() %} {% if key != "_id" and key!="project" %}
+                {% for key, value in case.items() %} {% if key != "_id" and key!="project" and key[0:5] != "image" and key[0:5] != "video" %}
                 <p>{{key}}: {{value}}</p>
                 {% endif %} {% endfor %}
             </div>

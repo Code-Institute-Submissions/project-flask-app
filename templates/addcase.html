@@ -8,11 +8,10 @@
 
     <div class="row">
         <form class="col s12" method="POST">
-            <input type="hidden" name="project" value={{case.project}}> {%for key, value in case.items() %} 
-            
-            {% if key[0:4]=='bool' %}
-           
-            <div class="row">
+            <div id="caseForm">
+                <input type="hidden" name="project" value={{case.project}}> {%for key, value in case.items() %} {% if key[0:4]=='bool' %}
+
+                <div class="row">
                     <div class="switch">
                         <label>
                           <input name="{{value}}" type="checkbox">
@@ -21,24 +20,27 @@
                         </label>
                     </div>
                 </div>
-            
-            {% elif key[0:4]=='text' %}
 
-            <div class="input-field col s12">
-                <input placeholder="text" id="new_case" type="text" class="validate" name={{value}}>
-                <label for="new_case">{{value}}</label>
+                {% elif key[0:4]=='text' %}
+
+                <div class="input-field col s12">
+                    <input placeholder="text" id="new_case" type="text" class="validate" name={{value}}>
+                    <label for="new_case">{{value}}</label>
+                </div>
+
+                {% elif key[0:4]=='numb' %}
+
+                <div class="input-field col s12">
+                    <input placeholder="number" id="new_case" type="number" class="validate" name={{value}}>
+                    <label for="new_case">{{value}}</label>
+                </div>
+
+                {% endif %} {% endfor %}
             </div>
-            
-            {% elif key[0:4]=='numb' %}
-            
-            <div class="input-field col s12">
-                <input placeholder="text" id="new_case" type="text" class="validate" name={{value}}>
-                <label for="new_case">{{value}}</label>
-            </div>
-            
-            {% endif %} {% endfor %}
 
             <div class="row">
+                <a id="btnAddcasePicture" class="waves-effect waves-light indigo lighten-2 btn"><i class="material-icons right">add_a_photo</i>Add picture URL</a>
+                <a id="btnAddcaseVideo" class="waves-effect waves-light indigo lighten-2 btn"><i class="material-icons right">ondemand_video</i>Add video URL</a>
                 <button class="indigo btn waves-effect waves-light" type="submit">Submit
             <i class="material-icons right">send</i>
             </button>
