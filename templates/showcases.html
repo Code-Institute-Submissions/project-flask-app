@@ -5,7 +5,12 @@
         <div class="row center-align">
             <h4>{{cases_title}}</h4>
             <p class="show-cases-project-description">{{project.description}}</p>
-            <a href="{{url_for('add_case', project_id=project._id, project_title=cases_title)}}" class="indigo lighten-2 btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <div class="row">
+                <a href="{{url_for('add_case', project_id=project._id, project_title=cases_title)}}" class="indigo lighten-2 btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="row">
+                <a href="{{url_for('show_index')}}" class="indigo waves-effect waves-light btn"><i class="material-icons right">arrow_back</i>back</a>
+            </div>
         </div>
     </div>
     <div class="col l9 m12 s12">

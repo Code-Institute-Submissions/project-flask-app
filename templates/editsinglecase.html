@@ -6,21 +6,25 @@
 
     <div class="row">
         <form class="col s12" method="POST">
-            {%for key, value in case.items() %} {% if key != "_id" and key!="project"%}
-
-            <div class="input-field col s12">
-                <input placeholder="text" id="edit_case" type="text" class="validate" name={{key}} value={{value}}>
-                <label for="edit_case">{{key}}</label>
+            <input type="hidden" name="project" value={{case.project}}>
+            <div id="caseForm">
+                {%for key, value in case.items() %} {% if key != "_id" and key!="project"%}
+                <div class="input-field col s12">
+                    <input placeholder="text" id="edit_case" type="text" class="validate" name={{key}} value={{value}}>
+                    <label for="edit_case">{{key}}</label>
+                </div>
+                {% endif %} {% endfor %}
             </div>
 
-
-            {% endif %} {% endfor %}
-
+            <div class="row">
+                <a id="btnAddcasePicture" class="waves-effect waves-light indigo lighten-2 btn"><i class="material-icons right">add_a_photo</i>Add picture URL</a>
+                <a id="btnAddcaseVideo" class="waves-effect waves-light indigo lighten-2 btn"><i class="material-icons right">ondemand_video</i>Add video URL</a>
+            </div>
             <div class="row">
                 <button class="indigo btn waves-effect waves-light" type="submit">Submit
             <i class="material-icons right">send</i>
             </button>
-            <button class="indigo btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_case', project_title=case.project, case_id=case._id)}}">Delete
+                <button class="indigo btn waves-effect waves-light" type="submit" formaction="{{url_for('delete_case', project_title=case.project, case_id=case._id)}}">Delete
             <i class="material-icons right">delete</i>
             </div>
         </form>

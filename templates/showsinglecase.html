@@ -1,4 +1,7 @@
 {% extends "base.html" %} {% block content%}
+{% set ns = namespace(image=false)%}
+{%for key, value in case.items() %}{% if key[0:5] == "image"%}{% set ns.image = True %}{% endif%}{% endfor %}
+
 
 <div class="container">
     <div class="row center-align">
@@ -7,7 +10,7 @@
         <table class="highlight">
             <tbody>
                 {%for key, value in case.items() %} {% if key != "_id" and key!="project" and key[0:5] != "image" and key[0:5] != "video" %}
-
+                
                 <tr>
                     <td><strong>{{key}}</strong></td>
                     <td>{{value}}</td>
@@ -16,11 +19,14 @@
                 {% endif %} {% endfor %}
             </tbody>
         </table>
+        
+        {% if ns.image %}
         <div class="carousel carousel-slider">
             {%for key, value in case.items() %} {% if key[0:5] == "image" %}
             <a class="carousel-item" href={{value}}><img src={{value}}></a> {% endif%} {%endfor%}
         </div>
-
+         {% endif %}
+         
         {%for key, value in case.items() %} {% if key[0:5] == "video" %}
         <div class="video-container">
             <iframe width="853" height="480" src={{value}} frameborder="0" allowfullscreen></iframe>
