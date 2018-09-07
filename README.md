@@ -28,4 +28,19 @@ People tend to enjoy creating all sorts of "my favorite" lists. For example, fav
 The application can also help people in the buying decision process. Who doesn't list all the options before buying, for example, a new laptop? This web app lets you do so on the categories that are important for you. 
 
 ## Getting started
+If you also want to use the web app, you can clone this repo. The following instructions can help you setting up the project on your local machnine. These instructions are for Linux/Mac. Windows might be slightly different. 
+
+#### Prerequisites 
+Make sure to install python. Not sure whether you have python? Check by typing ```python --version``` in your terminal. 
+
+#### Installation 
+1. Clone the project to your local machine with ```git clone git@github.com:steindevos/project-flask-app.git```. 
+2. Create and activat a virtual environment. Create ```$ python3 -m venv ~/virtualenvs/<name_of_environment> and activate: $ source ~/virtualenvs/<name_of_environment>/bin/activate```. 
+3. Pip install the requirments.txt file ```pip3 install -r requirements.txt```. 
+4. Link your project with a non-relational database. This project stores data in MongoDB. You can create a free MongoDB database on [Mlab]. 
+5. 
+
+how to set up the database? 
+
+[Mlab]: https://mlab.com/ 
 
