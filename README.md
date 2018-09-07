@@ -38,9 +38,17 @@ Make sure to install python. Not sure whether you have python? Check by typing `
 2. Create and activat a virtual environment. Create ```$ python3 -m venv ~/virtualenvs/<name_of_environment> and activate: $ source ~/virtualenvs/<name_of_environment>/bin/activate```. 
 3. Pip install the requirments.txt file ```pip3 install -r requirements.txt```. 
 4. Link your project with a non-relational database. This project stores data in MongoDB. You can create a free MongoDB database on [Mlab]. 
-5. 
+5. In order to make the project work with your own database change app.py file. Change these lines of code 
 
-how to set up the database? 
+```python
+app.config["MONGO_DBNAME"] = "flask-app"
+app.config["MONGO_URI"] = "mongodb://admin:pa55word10@ds119072.mlab.com:19072/flask-app"
+```
+Into 
+```python
+app.config["MONGO_DBNAME"] = <your_deployment_name>
+app.config["MONGO_URI"] = "mongodb://<username>:<password>.mlab.com:19072/flask-app"
+```
 
 [Mlab]: https://mlab.com/ 
 
