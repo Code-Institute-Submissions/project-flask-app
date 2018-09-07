@@ -51,4 +51,5 @@ app.config["MONGO_URI"] = "mongodb://<username>:<password>.mlab.com:19072/flask-
 ```
 
 [Mlab]: https://mlab.com/ 
+6. How to run the project? aegghjmm mbv
 
