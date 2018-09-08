@@ -17,16 +17,18 @@
         {% for case in cases %}
         <div class="col l4 m6 s12">
             <a href="{{url_for('show_single_case', project_title=project.project, case_id=case._id)}}">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/test.jpg') }}">
+                <div class="card hoverable">
+                    <div class="card-content">
+                        {% for key, value in case.items() %} {% if key != "_id" and key!="project" and key[0:5] != "video" %}
+                        {% if key[0:6] == "image0" %}
+                        <div class="card-image">
+                            <img src="{{value}}">
+                        </div>
+                        {% elif key[0:5] != "image" %}
+                        <p>{{key}}: {{value}}</p>
+                        {% endif %}{% endif %} {% endfor %}
                     </div>
             </a>
-            <div class="card-content">
-                {% for key, value in case.items() %} {% if key != "_id" and key!="project" and key[0:5] != "image" and key[0:5] != "video" %}
-                <p>{{key}}: {{value}}</p>
-                {% endif %} {% endfor %}
-            </div>
 
             <div class=right-align>
                 <a class="project-card-icon" href="{{url_for('edit_single_case', project_title=project.project, case_id=case._id)}}"><i class="small material-icons">edit</i></a>

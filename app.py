@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -9,6 +9,8 @@ app.config["MONGO_DBNAME"] = "flask-app"
 app.config["MONGO_URI"] = "mongodb://admin:pa55word10@ds119072.mlab.com:19072/flask-app"
 mongo = PyMongo(app)
 
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 @app.route("/")
 def show_index():
     return render_template("index.html", projects=mongo.db.projects.find())
@@ -16,10 +18,15 @@ def show_index():
 @app.route("/add", methods=["GET", "POST"])
 def add_project():
     if request.method == "POST":
-        projects = mongo.db.projects
-        projects.insert_one(request.form.to_dict())
-        return redirect("/")
-    
+        project_name = request.form["project"]
+        if mongo.db.projects.find_one({"project": project_name}):
+            flash("You already have a project titled " + project_name +". Please choose another title.")
+            return redirect(url_for("add_project"))
+        else: 
+            projects = mongo.db.projects
+            projects.insert_one(request.form.to_dict())
+            return redirect("/")
+            
     return render_template("addproject.html")
     
 @app.route("/project/<project_name>")

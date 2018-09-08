@@ -21,15 +21,17 @@
         </table>
         
         {% if ns.image %}
+        <div class="divider"></div>
         <div class="carousel carousel-slider">
             {%for key, value in case.items() %} {% if key[0:5] == "image" %}
-            <a class="carousel-item" href={{value}}><img src={{value}}></a> {% endif%} {%endfor%}
+            <a class="carousel-item" href={{value}}><img src="{{value}}"></a> {% endif%} {%endfor%}
         </div>
          {% endif %}
          
         {%for key, value in case.items() %} {% if key[0:5] == "video" %}
+        <div class="divider"></div>
         <div class="video-container">
-            <iframe width="853" height="480" src={{value}} frameborder="0" allowfullscreen></iframe>
+            <iframe width="853" height="480" src="https://www.youtube.com/embed/{{value}}" frameborder="0" allowfullscreen></iframe>
         </div>
         {%endif%} {%endfor%}
     </div>

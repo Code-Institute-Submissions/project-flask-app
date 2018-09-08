@@ -35,7 +35,7 @@ $(document).ready(function() {
         countCasePicture += 1
     });
     $('#btnAddcaseVideo').click(function() {
-        let newDivVideo = $('<div class="input-field col s12"><input placeholder="video URL should start with' + " 'http' " + '(Get nice videos from Youtube ... duhh! :P )" id="new_video" type="text" class="validate" name="video' + countCaseVideo + '"><label for="new_video">Add video url</label></div>');
+        let newDivVideo = $('<div class="input-field col s12"><input placeholder="Add video url (part after v=)" id="new_video" type="text" class="validate" name="video' + countCaseVideo + '"><label for="new_video">Add Youtube video url</label></div>');
         $('#caseForm').append(newDivVideo);
         countCaseVideo += 1
     });
@@ -43,4 +43,5 @@ $(document).ready(function() {
     $('.carousel.carousel-slider').carousel({
         fullWidth: true
     });
+
 });
