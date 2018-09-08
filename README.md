@@ -1,5 +1,8 @@
 # project-flask-app
 This is a web application that allows users to create their own projects for storing data. It is intended for storing "your favorites" lists, like your favorite books, movies, cars, etc. However, the app can also be used for other things. For example, it might help you compare different products when you are on the verge of buying something. 
+
+Benefits of schemaless database. 
+
 A nice feature of this app is that you can create your own "columns" in the database. So, you can save and compare on the categories that you think are important. For example, if want to store the IMDB score of your favorite movies you just add it to the project. Another nice feature is that you can store photos and videos. So, you can also store the trailer of the movie.
 
 #### Live demo
@@ -54,7 +57,8 @@ app.config["MONGO_URI"] = "mongodb://<username>:<password>.mlab.com:19072/flask-
 6. Once you have linked to the database you are ready to run the project. Type ```python3 app.py``` in the terminal. You should be able to see the app running on your localhost: ```127.0.0.1:8000```. 
 
 #### Running tests
-
+same name. error message
+add case? 
 
 
 #### Deployment
