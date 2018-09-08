@@ -1,4 +1,5 @@
 /*------------------------------------------------------------------colors, bg-colors*/
+
 .nav-text-color-mobile {
     color: white;
 }
@@ -10,6 +11,7 @@
 
 
 /*------------------------------------------------------------------special paddings, positions*/
+
 .projects-wrapper {
     margin-left: 20px;
     margin-right: 20px
@@ -43,9 +45,34 @@
     margin: 20px;
 }
 
+.margin-bottom-btn {
+    margin-bottom: 20px; 
+}
 
 
-/*------------------------------------------------------------------index*/
-.card-add-project {
-    
+/*------------------------------------------------------------------show-cases*/
+
+.show-cases-card {
+    min-height: 182px; 
+    margin: 10px 10px 10px 10px;
+}
+
+.show-cases-card-title {
+    color: black;
+    text-decoration: none; 
+}
+
+.show-cases-img {
+    object-fit: cover;
+    max-height: 100px;
+}
+
+
+
+
+
+@media screen and (min-width: 403px) {
+    .margin-bottom-btn {
+        margin-bottom: 0px; 
+    }
 }
