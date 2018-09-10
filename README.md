@@ -6,7 +6,9 @@ Benefits of schemaless database.
 A nice feature of this app is that you can create your own "columns" in the database. So, you can save and compare on the categories that you think are important. For example, if want to store the IMDB score of your favorite movies you just add it to the project. Another nice feature is that you can store photos and videos. So, you can also store the trailer of the movie.
 
 #### Live demo
-A live demo of the web app can be viewed here. 
+A live demo of the web app can be viewed [here].
+
+[here]: https://sdv-flask-app.herokuapp.com/
 
 ## Built with
 1. Flask
