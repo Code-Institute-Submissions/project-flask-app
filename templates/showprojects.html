@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content%}
+
+
+<div class="row center-align">
+    <h4>My projects</h4>
+</div>
+<div class="row projects-wrapper">
+    <a class="project-card-icon" href="{{url_for('add_project')}}">
+        <div class="col l4 m6 s12 project-cards card-add-project">
+            <div class="card project-cards indigo lighten-4 hoverable valign-wrapper">
+                <i class="btn-add-project large material-icons button-color">add_circle_outline</i>
+            </div>
+        </div>
+    </a>
+    {% for project in projects%}
+    <a href="{{url_for('show_cases', project_name=project.project)}}">
+        <div class="col l4 m6 s12">
+            <div class="card project-cards hoverable">
+                <div class="card-image">
+                    <img class="project-card-img" {% if project.image and project.image[0:4]=="http" %} src="{{project.image}}" {% else %} src="https://images.pexels.com/photos/247772/pexels-photo-247772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" {% endif %}>
+                    <span class="card-title">{{project.project}}</span>
+                    <a href="{{url_for('add_case', project_id=project._id, project_title=project.project)}}" class="indigo lighten-2 btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>{{project.description}}</p>
+                </div>
+                <div class="right-align">
+                    <a class="project-card-icon" href="{{url_for('edit_project', project_id=project._id, project_title=project.project)}}"><i class="small material-icons">edit</i></a>
+                    <a class="project-card-icon" href="{{url_for('edit_project', project_id=project._id, project_title=project.project)}}"><i class="small material-icons">delete</i></a>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>{% endblock%}

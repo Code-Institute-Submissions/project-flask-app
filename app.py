@@ -14,7 +14,11 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 @app.route("/")
 def show_index():
     return render_template("index.html", projects=mongo.db.projects.find())
-
+    
+@app.route("/showprojects")
+def show_projects():
+    return render_template("showprojects.html", projects=mongo.db.projects.find())
+    
 @app.route("/add", methods=["GET", "POST"])
 def add_project():
     if request.method == "POST":
@@ -65,7 +69,7 @@ def add_case(project_title):
 def edit_project(project_id):
     if request.method == "POST":
         mongo.db.projects.update({"_id":ObjectId(project_id)}, request.form.to_dict())
-        return redirect(url_for("show_index"))
+        return redirect(url_for("show_projects"))
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     return render_template("editproject.html", project=project)
 
@@ -73,7 +77,7 @@ def edit_project(project_id):
 def delete_project(project_id, project_title):
     mongo.db.projects.remove({"_id": ObjectId(project_id)})
     mongo.db.drop_collection(project_title)
-    return redirect(url_for("show_index"))
+    return redirect(url_for("show_projects"))
 
 @app.route("/deletecase/<project_title>/<case_id>", methods=["POST"])
 def delete_case(project_title, case_id):
