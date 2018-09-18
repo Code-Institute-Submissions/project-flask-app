@@ -23,13 +23,17 @@ def show_projects():
 def add_project():
     if request.method == "POST":
         project_name = request.form["project"]
+        image_url = request.form["image"]
         if mongo.db.projects.find_one({"project": project_name}):
             flash("You already have a project titled " + project_name +". Please choose another title.")
             return redirect(url_for("add_project"))
+        elif image_url:
+            if image_url[0:4] != "http":
+                flash("Your image url should start with 'http'!")
         else: 
             projects = mongo.db.projects
             projects.insert_one(request.form.to_dict())
-            return redirect("/")
+            return redirect(url_for("show_projects"))
             
     return render_template("addproject.html")
     
