@@ -80,6 +80,16 @@
     margin-top: 60px;
 }
 
+.arrow-img {
+    width: 60%;
+    padding-left: 20px; 
+}
+
+.arrow-img3 {
+    width: 70%;
+    padding-left: 20px; 
+}
+
 
 /*------------------------------------------------------------------show-cases*/
 
@@ -91,6 +101,7 @@
 .show-cases-card-title {
     color: black;
     text-decoration: none; 
+    word-break: break-all; 
 }
 
 .show-cases-img {
@@ -102,7 +113,7 @@
 
 
 
-@media screen and (min-width: 403px) {
+@media screen and (min-width: 415px) {
     .margin-bottom-btn {
         margin-bottom: 0px; 
     }
