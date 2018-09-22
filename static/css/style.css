@@ -1,4 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Poppins|Sintony');
+
+
+/*------------------------------------------------------------------fonts - general */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Sintony', sans-serif;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.lobster-font {
+    font-family: 'Lobster', cursive;
+}
 
 
 /*------------------------------------------------------------------colors, bg-colors*/
@@ -47,20 +68,22 @@
 }
 
 .margin-bottom-btn {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .title-home {
     padding-top: 70px;
+    font-size: 12vw;
+}
+
+.title-home-sub {
+    font-size: 4vw;
 }
 
 
-/*------------------------------------------------------------------navbar*/
-.logo-text {
-    font-family: 'Lobster', cursive;
-}
 
 /*------------------------------------------------------------------home*/
+
 .home-logo {
     max-height: 40px;
     padding-top: 12px;
@@ -73,35 +96,35 @@
 .background-image {
     background-image: url('../images/servers.jpg');
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     opacity: 0.8;
-    min-height: 70vh; 
+    min-height: 70vh;
     background-position: center bottom;
     margin-top: 60px;
 }
 
 .arrow-img {
     width: 60%;
-    padding-left: 20px; 
+    padding-left: 20px;
 }
 
 .arrow-img3 {
     width: 70%;
-    padding-left: 20px; 
+    padding-left: 20px;
 }
 
 
 /*------------------------------------------------------------------show-cases*/
 
 .show-cases-card {
-    min-height: 182px; 
+    min-height: 182px;
     margin: 10px 10px 10px 10px;
 }
 
 .show-cases-card-title {
     color: black;
-    text-decoration: none; 
-    word-break: break-all; 
+    text-decoration: none;
+    word-break: break-all;
 }
 
 .show-cases-img {
@@ -115,11 +138,20 @@
 
 @media screen and (min-width: 415px) {
     .margin-bottom-btn {
-        margin-bottom: 0px; 
+        margin-bottom: 0px;
     }
-    
+
     .text-wrapper {
         max-width: 40%;
         margin: 0 auto;
+    }
+
+    .title-home {
+        padding-top: 70px;
+        font-size: 5vw;
+    }
+
+    .title-home-sub {
+        font-size: 2vw;
     }
 }
