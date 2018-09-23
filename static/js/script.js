@@ -1,11 +1,11 @@
 $(document).ready(function() {
     $('.sidenav').sidenav();
 
-    countCategoryText = 0;
-    countCategoryNumber = 0;
-    countCategoryBoolean = 0;
-    countCasePicture = 0;
-    countCaseVideo = 0;
+    let countCategoryText = 0;
+    let countCategoryNumber = 0;
+    let countCategoryBoolean = 0;
+    let countCasePicture = 0;
+    let countCaseVideo = 0;
 
 
     $('#btnAddprojectCategoryText').click(function() {

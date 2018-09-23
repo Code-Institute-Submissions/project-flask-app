@@ -10,7 +10,7 @@
             <div id="caseForm">
                 {%for key, value in case.items() %} {% if key != "_id" and key!="project"%}
                 <div class="input-field col s12">
-                    <input placeholder="text" id="edit_case" type="text" class="validate" name={{key}} value={{value}}>
+                    <input placeholder="text" id="edit_case" type="text" class="validate" name="{{key}}" value="{{value}}">
                     <label for="edit_case">{{key}}</label>
                 </div>
                 {% endif %} {% endfor %}

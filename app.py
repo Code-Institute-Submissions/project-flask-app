@@ -30,6 +30,10 @@ def add_project():
         elif image_url:
             if image_url[0:4] != "http":
                 flash("Your image url should start with 'http'!")
+            else: 
+                projects = mongo.db.projects
+                projects.insert_one(request.form.to_dict())
+                return redirect(url_for("show_projects"))
         else: 
             projects = mongo.db.projects
             projects.insert_one(request.form.to_dict())
@@ -72,8 +76,12 @@ def add_case(project_title):
 @app.route("/edit/<project_id>", methods=["POST", "GET"])
 def edit_project(project_id):
     if request.method == "POST":
-        mongo.db.projects.update({"_id":ObjectId(project_id)}, request.form.to_dict())
-        return redirect(url_for("show_projects"))
+        image_url = request.form["image"]
+        if image_url[0:4] != "http":
+            flash("Your image url should start with 'http'!")
+        else: 
+            mongo.db.projects.update({"_id":ObjectId(project_id)}, request.form.to_dict())
+            return redirect(url_for("show_projects"))
     project = mongo.db.projects.find_one({"_id": ObjectId(project_id)})
     return render_template("editproject.html", project=project)
 

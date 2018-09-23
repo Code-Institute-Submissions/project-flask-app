@@ -10,7 +10,7 @@
         <form class="col s12" method="POST">
             <div id="caseForm">
 
-                <input type="hidden" name="project" value={{case.project}}>
+                <input type="hidden" name="project" value="{{case.project}}">
                 <div class="input-field col s12">
                     <input placeholder="text" id="new_case" type="text" class="validate" name="title" maxlength="40">
                     <label for="new_case">Title</label>
@@ -31,14 +31,14 @@
                 {% elif key[0:4]=='text' %}
 
                 <div class="input-field col s12">
-                    <input placeholder="text" id="new_case" type="text" class="validate" name={{value}}>
+                    <input placeholder="text" id="new_case" type="text" class="validate" name="{{value}}">
                     <label for="new_case">{{value}}</label>
                 </div>
 
                 {% elif key[0:4]=='numb' %}
 
                 <div class="input-field col s12">
-                    <input placeholder="number" id="new_case" type="number" class="validate" name={{value}}>
+                    <input placeholder="number" id="new_case" type="number" class="validate" name="{{value}}">
                     <label for="new_case">{{value}}</label>
                 </div>
 
