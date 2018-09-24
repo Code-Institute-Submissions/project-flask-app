@@ -24,7 +24,7 @@ A live demo of the web app can be viewed [here].
 * Add media - Images and videos can also be added
 
 ###### Features left to implement: 
-* At the moment the web app is built for personal use. However, by creating login functionality the app could serve multiple users. Each user could have its own account or potentially share projects. 
+* At the moment the web app is built for personal use. However, by creating login functionality the app could serve multiple users. Each user could have its own account or potentially share projects. Also, when the web app is meant for people other than myself the UX has to be improved. For example, for uploading videos. 
 
 ## UX 
 People tend to enjoy creating all sorts of "my favorite" lists. For example, favorite books or movies. This web application allows users to create such lists according to what information they want to store. A nice feature of this web application is that the users themselves get to choose what the project categories are. Do they want to store only the author and title of their favorite book? Or also the number of pages, ratings, and book cover photos? Or even book reviews on Youtube?
